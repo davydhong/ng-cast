@@ -1,30 +1,34 @@
-angular.module('video-player')
-
-.component('app', {
+angular.module("video-player").component("app", {
   // TODO
-  
-  controller: function ( ){ 
 
-
-    this.searchResults = function () { } //#
+  controller: function(youtube) {
+    this.searchresults = function(query) {
+      var key = window.YOUTUBE_API_KEY;
+      youtube.search({ key, query }, function(data) {
+          debugger;
+          console.log(data);
+        this.videos = data;
+        this.playing = data[0];
+      }.bind(this));
+    };
 
     this.playing = window.exampleVideoData[2]; //#
-    console.log('app',this);
+    // console.log("app", this);
     this.videos = window.exampleVideoData; //#
 
-
-    this.selectvideo = function (index) {
-      console.log(this);
-      debugger;
-    this.playing = this.videos[index]; 
-}
-this.selectvideo = this.selectvideo.bind(this);
+    this.selectvideo = function(index) {
+      //console.log(this);
+      //debugger;
+      this.playing = this.videos[index];
+    };
+    this.selectvideo = this.selectvideo.bind(this);
+    this.searchresults = this.searchresults.bind(this);
   },
-  templateUrl: '/src/templates/app.html'
+  templateUrl: "/src/templates/app.html"
 
   // /Users/student/code/hrsf101-ng-cast/src/templates/app.html
   // /Users/student/code/hrsf101-ng-cast/src/components/app.js
-})
+});
 
 // `<div id="app container">
 //   <nav class="navbar">

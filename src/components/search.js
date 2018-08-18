@@ -2,10 +2,15 @@ angular.module('video-player')
 
 .component('search', {
   // TODO
-  bindings: { },
+  bindings: { 
+    searchresults: '<'    
+  },
 
   controller: function () { 
     this.result = function () { }
+    
+
+
   },
   
   templateUrl: '/src/templates/search.html'
