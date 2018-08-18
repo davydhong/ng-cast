@@ -24,9 +24,9 @@ describe('app', function() {
     $rootScope.$digest();
   }));
 
-  it('should have a selectVideo function on the scope', function() {
-    expect(element.isolateScope().$ctrl.selectVideo).to.exist;
-    expect(element.isolateScope().$ctrl.selectVideo).to.be.a('function');
+  it('should have a selectvideo function on the scope', function() {
+    expect(element.isolateScope().$ctrl.selectvideo).to.exist;
+    expect(element.isolateScope().$ctrl.selectvideo).to.be.a('function');
   });
 
   it('should have a searchResults function on the scope', function() {
